@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>iTunes App</title>
+	<link rel="stylesheet" type="text/css" href="css/styles.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@1,422&display=swap" rel="stylesheet">
+<!--	<script src="js/script.js"></script>-->
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+	<script type="module" src="js/main.js"></script>
+	<script type="module" src="js/on-body-load.js"></script>
+	<script type="module" src="js/create-item-html-element.js"></script>
+	<script type="module" src="js/search-i-tunes.js"></script>
+	<script type="module" src="js/you-tube-search.js"></script>
+
+</head>
+<body onload="onBodyLoad()">
+	<header>
+		iTunes App Header
+	</header>
+	
+	<main>
+		<div class="search-wrapper">
+			<label for="search-box"></label>
+			<input type="text" id="search-box" placeholder="Search Here">
+			<div class="type-select-wrapper">
+				<label for="type-select">Choose a type:</label>
+				<select name="type-select" id="type-select">
+					<option value="all">All</option>
+					<option value="movie">Movie</option>
+					<option value="podcast">Podcast</option>
+					<option value="song">Song</option>
+					<option value="musicVideo">Music Video</option>
+					<option value="audiobook">Audio Book</option>
+					<option value="shortFilm">Short Film</option>
+					<option value="tvShow">Tv Show</option>
+				</select>
+			</div>
+			<input type="button" value="search" onclick="onButtonClicked()">
+		</div>
+		
+		<div id="result-list">
+		
+		</div>
+	</main>
+	
+	<footer>
+		Footer by iftach
+	</footer>
+</body>
+</html>
+
