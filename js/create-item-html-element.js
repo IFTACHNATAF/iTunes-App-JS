@@ -3,18 +3,30 @@
 function createItemHtmlElement(item,searchType) //encapsulation
 {
     switch(item.kind && searchType) {
+        case searchType = 'all' ||!'': {
+
+            // Reusable component
+            const templateAll = `
+           <h1> hello</h1>
+            `
+
+            return $(templateAll);
+
+        }
+
 
         case searchType = 'song' || 'all': {
 
             // Reusable component
-            const template = `
+            const templateSong = `
 <hr>
-		<div class="song-item-wrapper" onclick="youTubeSearch()">
+		<div class="data-item-wrapper" onclick="youTubeSearch()">
 			<img src="${item.artworkUrl60}" height="60" alt="song pic">
-			<div class="song-fields">
-		     <p class="direction" id="youtube-p-title"> <span style="color: red">click the </span><span style="color: black">Title</span> </p>
+			<div class="data-fields">
 				<div class="song-title" id="song-title">
+				<span class="hovertext" data-hover="YouTube Search">
 					${item.trackName}
+					</span>
 				</div>
 				<div  class="album-title">
 					${item.collectionName}
@@ -30,21 +42,23 @@ function createItemHtmlElement(item,searchType) //encapsulation
 			
 		</div>	
 	`
-            //		<button class="youtube" id="youtube"  ><span style="color: red" data-text="You">You</span><span style="color: black" data-text="Tube">Tube</span> <br> Search</button>
-            return $(template);
+
+            return $(templateSong);
 
         }
 
         case searchType = 'movie' || 'all': {
             console.log(item.kind)
-            const template2 = `
+            const templateMovie = `
 <hr>
-		<div class="song-item-wrapper" onclick="youTubeSearch()">
+		<div class="data-item-wrapper" onclick="ImdbSearch()">
 			<img src="${item.artworkUrl100}" height="250" width="150" alt="movie pic">
-			<div class="song-fields">
-		     <p class="direction" id="movie-Description"> ${item.longDescription} </p>
-				<div class="movie-title" id="movie-title">
+			<div class="data-fields">
+		     <p class="direction" id="movie-Description" > ${item.longDescription} </p>
+				<div class="movie-title" id="movie-title" >
+				<span class="hovertext" data-hover="Imdb Search">
 					${item.trackName}
+					</span>
 				</div>
 				<div  class="gener-title">
 					${item.primaryGenreName}
@@ -60,7 +74,7 @@ function createItemHtmlElement(item,searchType) //encapsulation
 			
 		</div>	
 	`
-            return $(template2);
+            return $(templateMovie);
             break;
         } /* @ toDO continue the search types from here*/
         case searchType = 'Podcast' || 'all': {

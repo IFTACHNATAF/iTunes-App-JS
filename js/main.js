@@ -5,6 +5,7 @@ import {
 }                     from "./on-body-load.js";
 import {searchITunes} from "./search-i-tunes.js";
 import {youTubeSearcher} from "./you-tube-search.js"
+import {imdbSearch} from "./imdb-search.js"
 
 
 
@@ -15,4 +16,7 @@ window.onButtonClicked = ()=>{
 };
 window.youTubeSearch= ()=> {
     youTubeSearcher($search_term_input.val())
+}
+window.ImdbSearch= ()=> {
+    imdbSearch($search_term_input.val())
 }
