@@ -1,22 +1,47 @@
 import {
-    onBodyLoad,
-    $search_term_input,
-    $type_select_el
-}                     from "./on-body-load.js";
-import {searchITunes} from "./search-i-tunes.js";
-import {youTubeSearcher} from "./you-tube-search.js"
-import {imdbSearch} from "./imdb-search.js"
+    clearResultList,
+    getSearchTerm,
+    getSearchType,
+    onDomLoad,
+    registerOnEnter,
+    renderList
+
+}                     from "./modules/jquery-dom-module.js";
+import {searchITunes} from "./modules/itunes-api-module.js";
+import {youTubeSearcher} from "./modules/youTube-search.js";
+import {movieSearch} from "./modules/movie-search.js";
+
+window.onBodyLoad = (event) => {
+    onDomLoad();
+    registerOnEnter(() => {
+        alert('You pressed the E key!')
+        console.log('registerOnEnter');
+    })
+}
 
 
+const onButtonClicked  = async () => {
+    clearResultList();
 
-window.onBodyLoad      = onBodyLoad;
-window.onButtonClicked = ()=>{
-    searchITunes($search_term_input.val(),$type_select_el.val());
-    console.log($search_term_input.val(),$type_select_el.val())
+    const
+        searchTerm = getSearchTerm();
+    if (!searchTerm)
+    {
+        return
+    }
+
+    const
+        items      = await searchITunes(searchTerm, getSearchType());
+
+    renderList(items, getSearchType());
 };
+
+window.onButtonClicked = onButtonClicked
+
+
 window.youTubeSearch= ()=> {
-    youTubeSearcher($search_term_input.val())
+    youTubeSearcher(getSearchTerm())
 }
 window.ImdbSearch= ()=> {
-    imdbSearch($search_term_input.val())
+    movieSearch(getSearchTerm())
 }

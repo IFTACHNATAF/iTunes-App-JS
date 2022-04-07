@@ -1,4 +1,4 @@
-function imdbSearch(search_term) {
+function movieSearch(search_term) {
 
 
     const movieName = document.querySelectorAll("#movie-title");
@@ -13,4 +13,4 @@ function imdbSearch(search_term) {
 
 }
 
-export {imdbSearch}
+export {movieSearch}

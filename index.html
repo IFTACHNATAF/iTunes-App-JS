@@ -14,8 +14,8 @@
 	<script type="module" src="js/main.js"></script>
 	<script type="module" src="js/on-body-load.js"></script>
 	<script type="module" src="js/create-item-html-element.js"></script>
-	<script type="module" src="js/search-i-tunes.js"></script>
-	<script type="module" src="js/you-tube-search.js"></script>
+	<script type="module" src="js/modules/itunes-api-module.js"></script>
+	<script type="module" src="js/modules/youTube-search.js"></script>
 
 </head>
 <body onload="onBodyLoad()">
@@ -25,8 +25,7 @@
 	
 	<main>
 		<div class="search-wrapper">
-			<label for="search-box"></label>
-			<input type="text" id="search-box" placeholder="Search Here">
+			<input type="text" id="search-box" placeholder="Search Here" onkeyup="onButtonClicked()">
 			<div class="type-select-wrapper">
 				<label for="type-select">Choose a type:</label>
 				<select name="type-select" id="type-select">

@@ -161,14 +161,15 @@ div#result-list::-webkit-scrollbar{
 .data-item-wrapper {
     display: flex;
     margin: 20px 0 0 0;
+    border-radius: 5px;
 }
 
 .data-item-wrapper:hover{
 
     color:black;
     margin: 0 30px 0 0;
-
-    box-shadow: 8px 5px 16px 18px rgba(190, 212, 253, 0.38);
+    transition: opacity 1.5s ease-in-out;
+    box-shadow: 8px 5px 16px  rgba(190, 212, 253, 0.38);
 }
 
 .data-item-wrapper > div {
@@ -239,7 +240,7 @@ img{
 
 
 hr{
-    padding: 3px;
+    padding: 5px;
     background-color: #fff;
     border-radius: 3px;
 }
