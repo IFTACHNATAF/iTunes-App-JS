@@ -83,7 +83,7 @@ function createItemHtmlElement(item,searchType) //encapsulation
 			<img src="${item.artworkUrl100}" height="250" width="150" alt="movie pic">
 			<div class="data-fields">
 				<div class="movie-title" id="movie-title" >
-				<span class="hovertext" data-hover="Imdb Search">
+				<span class="hovertext" data-hover="IMDb Search">
 					${item.trackName}
 					</span>
 				</div>
@@ -153,7 +153,7 @@ function createItemHtmlElement(item,searchType) //encapsulation
 			<img src="${item.artworkUrl100}"  alt="movie pic">
 			<div class="data-fields">
 				<div class="movie-title" id="movie-title" >
-				<span class="hovertext" data-hover="Imdb Search">
+				<span class="hovertext" data-hover="IMDb Search">
 					${item.trackName}
 					</span>
 				</div>

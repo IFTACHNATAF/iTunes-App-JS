@@ -6,8 +6,7 @@ function movieSearch(search_term) {
     for (let i = 0; i < movieName.length; i++) {
 // console.log(movieName)
         movieName[i].onclick = function () {
-            open(`https://www.youtube.com/results?search_query=${this.innerText}+${search_term}`)
-
+            open(`https://www.imdb.com/find?s=tt&q=${this.innerText}&ref_=nv_sr_sm`)
         }
     }
 

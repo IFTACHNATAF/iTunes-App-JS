@@ -115,7 +115,7 @@ footer {
     border-radius: 10px;
     cursor: pointer;
     box-shadow: 6px 6px 0 #969696;
-    padding: 0 0 20px 0;
+    padding: 10px 0 10px 0;
 
 }
 
@@ -321,11 +321,7 @@ hr{
 
     }
 
-    audio{
-        /*display: none;*/
-        /*display: flex;*/
 
-    }
 
 }
 
@@ -334,5 +330,8 @@ hr{
         margin: 5px 10px;
         font-size: 25px;
 
+    }
+    video{
+        margin: 95px 30px 0;
     }
 }
