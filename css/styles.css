@@ -137,11 +137,13 @@ input[type="text"] {
     flex: 1;
     margin-right: 40px;
     padding: 15px;
+
 }
 
 input {
     font-family: 'JetBrains Mono', monospace;
     font-size: 20px;
+
 }
 
 div#result-list {
@@ -152,24 +154,36 @@ div#result-list {
     text-align: center;
     display: inline;
 
+
 }
 
 div#result-list::-webkit-scrollbar{
-    display: flex;
+    width: 1em;
+}
+
+div#result-list::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+
+div#result-list::-webkit-scrollbar-thumb {
+    background-color: darkgrey;
+    outline: 1px solid slategrey;
 }
 
 .data-item-wrapper {
     display: flex;
     margin: 20px 0 0 0;
     border-radius: 5px;
+    padding: 30px;
 }
 
 .data-item-wrapper:hover{
-
+border-radius: 25px;
     color:black;
-    margin: 0 30px 0 0;
+    /*margin: 0 30px 0 0;*/
     transition: opacity 1.5s ease-in-out;
-    box-shadow: 8px 5px 16px  rgba(190, 212, 253, 0.38);
+    box-shadow: 18px 15px 36px  rgba(190, 212, 253, 0.38);
 }
 
 .data-item-wrapper > div {
@@ -180,29 +194,49 @@ div#result-list::-webkit-scrollbar{
 .data-fields {
     margin: 0 0 0 30px;
 }
+details{
+    color: #ecc000;
+}
 
 img{
-    margin: 15px 0;
+    margin: 45px 0;
+    height:250px;
+    width: 150px;
+}
+video{
+    background-color: white;
+    width: 85%;
+    height: auto;
+}
+
+audio{
+    margin: 125px  0 0;
+
 }
 
 
 
-#song-title{
+#song-title,
+#movie-title{
     font-size: 25px;
+    padding: 30px;
+    margin-top: 55px;
+
 }
 #song-title:hover{
     color: red;
     cursor: pointer;
 
 }
-#movie-title{
-    font-size: 25px;
-}
+
 
 #movie-title:hover{
     color: #ecc000;
     cursor: pointer;
 
+}
+#movie-Description{
+    margin: 30px 0 0;
 }
 #movie-Description:hover{
     color: #ecc000;
@@ -245,11 +279,7 @@ hr{
     border-radius: 3px;
 }
 
-video{
-    background-color: white;
-    width: 85%;
-    height: auto;
-}
+
 
 
 @media screen and (max-width: 992px){
@@ -270,6 +300,7 @@ video{
     }
     input[type=button]{
         margin: 0 50px 0 0;
+
     }
 
     div#result-list{
