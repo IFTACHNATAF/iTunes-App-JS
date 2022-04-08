@@ -25,15 +25,7 @@ html {
     /* border: 2px solid red; */
 }
 
-/*.song-title {*/
-/*    !* border: 1px solid; *!*/
-/*    font-weight: 900;*/
-/*    font-size: 20px;*/
-/*}*/
 
-/*.song-title:hover{*/
-
-/*}*/
 .direction{
     color: rgba(255, 255, 255, 0.43);
 }
@@ -174,16 +166,15 @@ div#result-list::-webkit-scrollbar-thumb {
 .data-item-wrapper {
     display: flex;
     margin: 20px 0 0 0;
-    border-radius: 5px;
+    border-radius: 25px;
     padding: 30px;
 }
 
 .data-item-wrapper:hover{
-border-radius: 25px;
     color:black;
     /*margin: 0 30px 0 0;*/
     transition: opacity 1.5s ease-in-out;
-    box-shadow: 18px 15px 36px  rgba(190, 212, 253, 0.38);
+    box-shadow: 12px 15px 20px 25px  rgba(190, 212, 253, 0.38);
 }
 
 .data-item-wrapper > div {
@@ -194,19 +185,27 @@ border-radius: 25px;
 .data-fields {
     margin: 0 0 0 30px;
 }
-details{
+#movie-details{
     color: #ecc000;
 }
 
+#podcast-details{
+    color: #68ff81;
+}
+.gener-title{
+    font-size: 20px;
+    margin: 10px 0 10px 0;
+}
 img{
     margin: 45px 0;
     height:250px;
     width: 150px;
 }
+
 video{
-    background-color: white;
-    width: 85%;
-    height: auto;
+    width: 550px;
+    height: 300px;
+    background-color: black;
 }
 
 audio{
@@ -217,8 +216,11 @@ audio{
 
 
 #song-title,
-#movie-title{
-    font-size: 25px;
+#movie-title,
+#podcast-title,
+#music-video-title,
+#audio-book-title{
+    font-size: 45px;
     padding: 30px;
     margin-top: 55px;
 
@@ -229,18 +231,46 @@ audio{
 
 }
 
+#podcast-title:hover,
+.podcast-a:hover{
+    color: #68ff81;
+    cursor: pointer;
+}
+a{
+    text-decoration: none;
+    color: inherit;
+}
+a:visited {
+    text-decoration: none;
+}
+
+
+
 
 #movie-title:hover{
     color: #ecc000;
     cursor: pointer;
 
 }
+
+
+
 #movie-Description{
     margin: 30px 0 0;
 }
 #movie-Description:hover{
     color: #ecc000;
 }
+
+#music-video-title:hover,
+.music-video-a:hover{
+    color: rgba(130, 0, 236, 0.89);
+    cursor: pointer;
+}
+#music-video-details{
+    color: #8200ECE2;
+}
+
 
 .hovertext {
 
@@ -253,14 +283,14 @@ audio{
     content: attr(data-hover);
     visibility: hidden;
     opacity: 0;
-    width: 140px;
+    width: 170px;
     background-color: rgba(0, 0, 0, 0.59);
     color: #fff;
     text-align: center;
     border-radius: 5px;
     padding: 5px 0;
     transition: opacity 0.5s ease-in-out;
-
+ font-size: 20px;
     position: absolute;
     /*z-index: 1;*/
     left: 0;
@@ -314,11 +344,30 @@ hr{
     #result-list{
 
     }
+    .data-item-wrapper{
+
+        justify-content: space-between;
+        align-content: space-between;
+    }
+    .data-fields{
+
+        border:  3px red solid;
+
+
+        /*display: block;*/
+        /*justify-content: space-between;*/
+
+    }
     .song-title {
         /* border: 1px solid; */
         font-weight: 900;
         font-size: 20px;
+        margin: 0 20px 0 10px;
 
+    }
+    video{
+        width: 290px;
+        height: 180px;
     }
 
 

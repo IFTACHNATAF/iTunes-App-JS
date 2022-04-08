@@ -44,16 +44,17 @@ export function clearResultList() {
 
 function createItemHtmlElement(item,searchType) //encapsulation
 {
-    switch(item.kind && searchType) {
+    switch(item.kind  && searchType) {
 
+        /* case 'all' will return template of song/movie at this moment  */
         case searchType = 'all' ||!'': {
 
 
-
+            /*          'all' case of song   */
             const templateSong = `
 <hr>
 		<div class="data-item-wrapper" onclick="youTubeSearch()">
-			<img src="${item.artworkUrl100}" height="250" width="150"  alt="song pic">
+			<img src="${item.artworkUrl100}"   alt="song pic">
 			<div class="data-fields">
 				<div class="song-title" id="song-title">
 				<span class="hovertext" data-hover="YouTube Search">
@@ -68,58 +69,54 @@ function createItemHtmlElement(item,searchType) //encapsulation
 				</div>
 			</div>
 			
-			<div class="song-player">
+			<div class="data-player">
 				<audio src="${item.previewUrl}" controls></audio>
 			</div>
 			
 		</div>	
 	`
-
-            // return $(templateSong);
-            // <p class="direction" id="movie-Description" > ${item.longDescription} </p>
+            /*          'all' case of movie   */
             const templateMovie = `
 <hr>
 		<div class="data-item-wrapper" onclick="ImdbSearch()">
-			<img src="${item.artworkUrl100}" height="250" width="150" alt="movie pic">
+			<img src="${item.artworkUrl100}" alt="movie pic">
 			<div class="data-fields">
 				<div class="movie-title" id="movie-title" >
 				<span class="hovertext" data-hover="IMDb Search">
 					${item.trackName}
 					</span>
 				</div>
-		    <details>
-		    <summary>summary</summary>
+		    <details id="movie-details">
+		    <summary>Summary</summary>
 		     ${item.longDescription}
                 </details>
 				<div  class="gener-title">
 					${item.primaryGenreName}
 				</div>
 				<div class="artist-title">
-					${item.artistName}
+					${item.artistName === 'Unknown' ? '' : item.artistName}
 				</div>
 			</div>
 			
-			<div class="song-player">
-				<video src="${item.previewUrl}" height="350" width="550" controls></video>
+			<div class="data-player">
+				<video src="${item.previewUrl}"  controls></video>
 			</div>
 			
 		</div>	
 	`
-            // return $(templateMovie);
             for (let prop in item) {
                 console.log(item.kind)
                 if(item.kind === "feature-movie"){ return $(templateMovie) }else {return $(templateSong)}
             }
         }
 
-
+            /* case song*/
         case searchType = 'song' || 'all': {
 
-            // Reusable component
             const templateSong = `
 <hr>
 		<div class="data-item-wrapper" onclick="youTubeSearch()">
-			<img src="${item.artworkUrl60}" height="60" alt="song pic">
+			<img src="${item.artworkUrl60}" alt="song pic">
 			<div class="data-fields">
 				<div class="song-title" id="song-title">
 				<span class="hovertext" data-hover="YouTube Search">
@@ -134,7 +131,7 @@ function createItemHtmlElement(item,searchType) //encapsulation
 				</div>
 			</div>
 			
-			<div class="song-player">
+			<div class="data-player">
 				<audio src="${item.previewUrl}" controls></audio>
 			</div>
 			
@@ -144,7 +141,7 @@ function createItemHtmlElement(item,searchType) //encapsulation
             return $(templateSong);
 
         }
-
+        /* case Movie*/
         case searchType = 'movie' || 'all': {
             console.log(item.kind)
             const templateMovie = `
@@ -157,19 +154,19 @@ function createItemHtmlElement(item,searchType) //encapsulation
 					${item.trackName}
 					</span>
 				</div>
-		     <details>
-		    <summary>summary</summary>
+		     <details id="movie-details">
+		    <summary>Summary</summary>
 		     ${item.longDescription}
                 </details>
 				<div  class="gener-title">
 					${item.primaryGenreName}
 				</div>
 				<div class="artist-title">
-					${item.artistName}
+					${item.artistName === 'Unknown' ? '' : item.artistName}
 				</div>
 			</div>
 			
-			<div class="song-player">
+			<div class="data-player">
 				<video src="${item.previewUrl}"  controls></video>
 			</div>
 			
@@ -177,36 +174,113 @@ function createItemHtmlElement(item,searchType) //encapsulation
 	`
             return $(templateMovie);
             break;
-        } /* @ toDO continue the search types from here*/
-        case searchType = 'Podcast' || 'all': {
+        }
+        /* case Podcast*/
+
+        case searchType = 'podcast' || 'all': {
             console.log(item.kind)
             const templatePodcast = `
 <hr>
-		<div class="data-item-wrapper" onclick="youTubeSearch()">
-			<img src="${item.artworkUrl100}" height="60" alt="movie pic">
-			<div class="song-fields">
-		     <p class="direction" id="imdb-p-title"> <span style="color: #ecc000">click the </span><span style="color: black">Title</span> </p>
-				<div class="movie-title" id="movie-title">
+		<div class="data-item-wrapper" >
+			<img src="${item.artworkUrl100}"  alt="movie pic">
+			<div class="data-fields">
+				<div class="podcast-title" id="podcast-title" >
+				<a class="podcast-a" href="${item.trackViewUrl}" target="_blank" >
+				<span class="hovertext" data-hover="Apple Podcast">
 					${item.trackName}
+					</span>
+					</a>
 				</div>
+		      <details id="podcast-details">
+		     <summary>More Details</summary>
+		      Release Date: ${item.releaseDate}
+		      <br>
+		      country: ${item.country}
+                 </details>
 				<div  class="gener-title">
-					${item.primaryGenreName}
+					${item.genres}
 				</div>
 				<div class="artist-title">
 					${item.artistName}
 				</div>
 			</div>
-			
-			<div class="song-player">
-				<video src="${item.previewUrl}" controls></video>
-			</div>
-			
-		</div>	
 	`
             return $(templatePodcast);
             break;
         }
-
+        case searchType = 'musicVideo' || 'all': {
+            console.log(item.kind)
+            const templateMusicVideo = `
+<hr>
+		<div class="data-item-wrapper" >
+			<img src="${item.artworkUrl100}"  alt="music-video pic">
+			<div class="data-fields">
+				<div class="music-video-title" id="music-video-title" >
+				<a class="music-video-a" href="${item.trackViewUrl}" target="_blank" >
+				<span class="hovertext" data-hover="Apple Music">
+					${item.trackName}
+					</span>
+					</a>
+				</div>
+		      <details id="music-video-details">
+		     <summary>More Details</summary>
+		      Release Date: ${item.releaseDate}
+		      <br>
+		      country: ${item.country}
+		      <br>
+		    
+                 </details>
+				
+				<div class="artist-title">
+					${item.artistName}
+				</div>
+			
+			</div>
+			
+					<div class="data-player">
+				<video src="${item.previewUrl}"  controls></video>
+			</div>
+	`
+            return $(templateMusicVideo);
+            break;
+        }
+        /*  @toDo continue with audiobook*/
+        case searchType = 'audiobook' || 'all': {
+            console.log(item.wrapperType)
+            const templateAudiobook = `
+<hr>
+		<div class="data-item-wrapper" >
+			<img src="${item.artworkUrl100}"  alt="audio-book pic">
+			<div class="data-fields">
+				<div class="audio-book-title" id="audio-book-title" >
+				<a class="music-video-a" href="${item.trackViewUrl}" target="_blank" >
+				<span class="hovertext" data-hover="Apple Music">
+					${item.trackName}
+					</span>
+					</a>
+				</div>
+		      <details id="audio-book-details">
+		     <summary>More Details</summary>
+		      Release Date: ${item.releaseDate}
+		      <br>
+		      country: ${item.country}
+		      <br>
+		    
+                 </details>
+				
+				<div class="artist-title">
+					${item.artistName}
+				</div>
+			
+			</div>
+			
+					<div class="data-player">
+				<video src="${item.previewUrl}"  controls></video>
+			</div>
+	`
+            return $(templateAudiobook);
+            break;
+        }
     }
 
 }

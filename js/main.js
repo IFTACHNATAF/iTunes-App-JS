@@ -11,6 +11,7 @@ import {searchITunes} from "./modules/itunes-api-module.js";
 import {youTubeSearcher} from "./modules/youTube-search.js";
 import {movieSearch} from "./modules/movie-search.js";
 
+
 window.onBodyLoad = (event) => {
     onDomLoad();
     registerOnEnter(() => {
@@ -45,3 +46,6 @@ window.youTubeSearch= ()=> {
 window.ImdbSearch= ()=> {
     movieSearch(getSearchTerm())
 }
+
+
+
