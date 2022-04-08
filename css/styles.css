@@ -349,15 +349,7 @@ hr{
         justify-content: space-between;
         align-content: space-between;
     }
-    .data-fields{
 
-        border:  3px red solid;
-
-
-        /*display: block;*/
-        /*justify-content: space-between;*/
-
-    }
     .song-title {
         /* border: 1px solid; */
         font-weight: 900;
@@ -368,6 +360,10 @@ hr{
     video{
         width: 290px;
         height: 180px;
+    }
+    img{
+        width: 70px;
+        height: 150px;
     }
 
 
